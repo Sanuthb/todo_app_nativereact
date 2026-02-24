@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "266285049783",
+    "project_id": "todoapp-45f45",
+    "storage_bucket": "todoapp-45f45.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:266285049783:android:2551d1e1ad6731f7dbaa32",
+        "android_client_info": {
+          "package_name": "com.sanuthb.focustaskapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAFVmLqAN9H5m_O3gqedzLx-BRb1Y_SeY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

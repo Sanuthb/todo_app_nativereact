@@ -1,14 +1,15 @@
 import { Ionicons } from '@expo/vector-icons';
 import React, { useEffect, useState } from 'react';
 import {
-    KeyboardAvoidingView,
-    Modal,
-    Platform,
-    Pressable,
-    ScrollView,
-    StyleSheet,
-    Text,
-    View
+  Alert,
+  KeyboardAvoidingView,
+  Modal,
+  Platform,
+  Pressable,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View
 } from 'react-native';
 import { Category, NewTask, Priority, Task, addTask, updateTask } from '../../lib/tasks';
 import { GlassInput } from './GlassInput';
@@ -53,13 +54,19 @@ export const TaskModal = ({ visible, onClose, userId, taskToEdit }: TaskModalPro
   const handleSubmit = async () => {
     if (!title.trim()) return;
 
+    const parsedDate = new Date(dateString);
+    if (isNaN(parsedDate.getTime())) {
+      Alert.alert("Invalid Date", "Please enter a valid date in MM/DD/YYYY format.");
+      return;
+    }
+
     const taskData: NewTask = {
       title,
       description,
       priority,
       category,
       startTime,
-      deadline: new Date(dateString) || new Date(),
+      deadline: parsedDate,
       completed: false
     };
 
@@ -72,6 +79,7 @@ export const TaskModal = ({ visible, onClose, userId, taskToEdit }: TaskModalPro
       onClose();
     } catch (error) {
       console.error("Error saving task:", error);
+      Alert.alert("Save Error", error instanceof Error ? error.message : "Could not save task.");
     }
   };
 

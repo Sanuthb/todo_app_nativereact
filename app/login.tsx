@@ -49,7 +49,8 @@ export default function IndexScreen() {
 
   // If already logged in, redirect to the main app (tabs)
   if (user) {
-    return <Redirect href="/(tabs)/index" />;
+    // @ts-ignore
+    return <Redirect href="/" />;
   }
 
   return (
